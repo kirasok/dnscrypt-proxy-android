@@ -15,3 +15,19 @@
 ##
 ## More info at: https://github.com/DNSCrypt/dnscrypt-proxy/wiki/Filters
 ##               https://github.com/quindecim/block
+
+ vk.com
+ reddit.com
+ =yandex.ru
+ ya.ru
+
+## Time-based rules
+
+ *.youtube.*  @time-to-sleep
+ lemmy.world  @time-to-sleep
+ wikipedia.org @time-to-sleep
+ github.com   @time-to-sleep
+ ozon.ru      @time-to-sleep
+ goldenapple.ru @time-to-sleep
+ market.yandex.ru @time-to-sleep
+

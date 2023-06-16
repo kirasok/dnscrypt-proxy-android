@@ -4,6 +4,7 @@
 
 ### Changed
 - Optimized relays.
+- The path of the config. files from `/storage/emulated/0/dnscrypt-proxy` to `$MODPATH/system/etc/dnscrypt-proxy`
 
 ### Removed
 - `dct-de1` resolver (ceased).

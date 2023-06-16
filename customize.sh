@@ -19,7 +19,8 @@ elif [ "$ARCH" == "x64" ];then
 fi
 
 # Set destination paths
-CONFIG_PATH=$MODPATH/config
+INIT_CONFIG_PATH=$MODPATH/config
+CONFIG_PATH=$MODPATH/system/etc/dnscrypt-proxy
 
 # Create the path for the binary file
 ui_print "* Creating the binary path."
@@ -27,7 +28,7 @@ mkdir -p $MODPATH/system/bin
 
 # Create the path for the configuration files
 ui_print "* Creating the config. path."
-mkdir -p /storage/emulated/0/dnscrypt-proxy
+mkdir -p $CONFIG_PATH
 
 # Copy the binary files into the right folder
 if [ -f "$BINARY_PATH" ]; then
@@ -38,7 +39,7 @@ else
 fi
 
 # Backup an existing config file before proceed
-CONFIG_FILE="/storage/emulated/0/dnscrypt-proxy/dnscrypt-proxy.toml"
+CONFIG_FILE="$CONFIG_PATH/dnscrypt-proxy.toml"
 
 if [ -f "$CONFIG_FILE" ]; then
 ui_print "* Backing up the existing config. file before proceed."
@@ -46,9 +47,9 @@ ui_print "* Backing up the existing config. file before proceed."
 fi
 
 # Copy the configuration files into the right folder
-if [ -d "$CONFIG_PATH" ]; then
+if [ -d "$INIT_CONFIG_PATH" ]; then
 ui_print "* Copying the configuration files into the dnscrypt-proxy folder."
-  cp -af $CONFIG_PATH/* /storage/emulated/0/dnscrypt-proxy/
+  cp -af $INIT_CONFIG_PATH/* $CONFIG_PATH/
 else
   abort "Configuration file (.toml) is missing!"
 fi
